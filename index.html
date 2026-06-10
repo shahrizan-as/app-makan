@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apa nak makan tonight?</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: radial-gradient(circle at top, #fdf2f8, #fbcfe8, #f472b6); min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 1rem; color: #1e293b; }
+    .card { background: rgba(255, 255, 255, 0.95); padding: 2.5rem 1.5rem; border-radius: 2rem; box-shadow: 0 20px 25px -5px rgba(219,39,119,0.2); max-width: 380px; width: 100%; text-align: center; border: 4px solid #db2777; }
+    h1 { font-size: 2.3rem; background: linear-gradient(to right, #db2777, #ea580c, #ca8a04); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0 0 1.5rem; font-weight: 900; }
+    button { background: linear-gradient(135deg, #ec4899, #db2777); color: white; border: none; padding: 1.1rem 2rem; font-size: 1.3rem; font-weight: 800; border-radius: 9999px; cursor: pointer; box-shadow: 0 6px 20px rgba(219,39,119,0.4); transition: all 0.15s cubic-bezier(0.175,0.885,0.32,1.275); width: 85%; outline: none; }
+    button:hover { transform: scale(1.05); background: linear-gradient(135deg, #f43f5e, #e11d48); }
+    button:active { transform: scale(0.95); }
+    #result { margin-top: 1.5rem; min-height: 130px; transition: all 0.3s cubic-bezier(0.175,0.885,0.32,1.275); transform: scale(0.8); opacity: 0; }
+    #result.show { transform: scale(1); opacity: 1; }
+    #emoji { font-size: 4.5rem; line-height: 1.2; margin-bottom: 0.25rem; }
+    #food-text { font-size: 2.2rem; font-weight: 800; color: #9f1239; text-shadow: 1px 1px 0px rgba(0,0,0,0.05); }
+  </style>
+</head>
+<body>
+  <div class="card" id="foodcard">
+    <h1 id="title">Apa nak makan tonight?</h1>
+    <button onclick="pick()" id="pbtn">Pilih untuk saya!</button>
+    <div id="result">
+      <div id="emoji"></div>
+      <div id="food-text"></div>
+    </div>
+  </div>
+  <script>
+    const list = [
+      { n: "Nasi Lemak", e: "🍛" }, { n: "Roti Canai", e: "🫓" },
+      { n: "Laksa", e: "🍜" }, { n: "Satay", e: "🍢" },
+      { n: "Mee Goreng", e: "🍝" }, { n: "Cendol", e: "🍧" },
+      { n: "Rendang", e: "🍖" }, { n: "Teh Tarik", e: "☕" },
+      { n: "Mee Rebus", e: "🥣" }, { n: "Nasi Kerabu", e: "🍚" }
+    ];
+    function pick() {
+      const r = document.getElementById('result');
+      r.classList.remove('show');
+      setTimeout(() => {
+        const item = list[Math.floor(Math.random() * list.length)];
+        document.getElementById('emoji').innerText = item.e;
+        document.getElementById('food-text').innerText = item.n;
+        r.classList.add('show');
+      }, 150);
+    }
+  </script>
+</body>
+</html>

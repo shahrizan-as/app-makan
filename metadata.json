@@ -1,0 +1,6 @@
+{
+  "name": "Apa Nak Makan Tonight",
+  "description": "A simple mobile-friendly app to randomly choose a Malaysian dish for dinner.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
